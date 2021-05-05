@@ -10,6 +10,10 @@ public class Restaurant {
     public LocalTime closingTime;
     private List<Item> menu = new ArrayList<Item>();
 
+    ArrayList<Integer> order = new ArrayList<Integer>();
+
+
+
     public Restaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         this.name = name;
         this.location = location;
@@ -65,6 +69,25 @@ public class Restaurant {
                 +"Opening time:"+ openingTime +"\n"
                 +"Closing time:"+ closingTime +"\n"
                 +"Menu:"+"\n"+getMenu());
+
+    }
+
+    public void addToOrder(int price) {
+        int newItemPrice = price;
+        order.add(newItemPrice);
+    }
+    public void removeFromOrder(int price) {
+        int newItemPrice = price;
+        order.remove(newItemPrice);
+    }
+
+    public int getOrderTotal() {
+        int total =0 ;
+
+        for(int price: order) {
+            total = total+ price;
+        }
+        return total;
 
     }
 
